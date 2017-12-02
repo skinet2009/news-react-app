@@ -1,16 +1,70 @@
 {
-  "name": "test-newborne",
+  "name": "react-news-app",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
-  },
+  "main": "public/index.html",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "webpack-dev-server --hot --inline",
+    "build": "rm -rf dist/ && webpack --progress --display-error-details",
+    "test": "./node_modules/.bin/_mocha",
+    "autotest": "./node_modules/.bin/_mocha --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skinet2009/news-react-app.git"
+  },
+  "author": "Nepritimov Maxim",
+  "license": "ISC",
+  "dependencies": {
+    "history": "^2.0.1",
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.4",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "react-redux": "^4.4.1",
+    "react-router": "^2.0.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.0.0",
+    "redux-actions": "^0.9.1",
+    "redux-devtools": "^3.1.1",
+    "redux-immutable": "^4.0.0",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-import-resolver-webpack": "^0.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^0.8.4",
+    "imports-loader": "^0.6.5",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "mocha": "^2.4.5",
+    "must": "^0.13.1",
+    "must-jsx": "^2.0.0",
+    "react-addons-test-utils": "^0.14.8",
+    "react-hot-loader": "^1.3.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.9.0"
+  },
+  "engines": {
+    "npm": "^3.8.6"
   }
 }
