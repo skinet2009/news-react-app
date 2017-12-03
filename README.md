@@ -1,6 +1,14 @@
 ### Description
 
-A very simple implementation of client and server-side React rendering
+News SPA on React + Redux
+
+Готовы следующие страницы:
+- Страница списка новостей (лента)
+- Страница авторизации
+
+Что нужно еще сделать:
+- Страница профиля
+- Страница просмотра новости
 
 ### Installation
 
