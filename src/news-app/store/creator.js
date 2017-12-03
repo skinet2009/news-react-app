@@ -4,9 +4,10 @@ import logger from 'redux-logger';
 
 import reducers from '../reducers';
 import globalState from '../middleware/globalState';
+import api from '../middleware/api';
 
 export default initialState => createStore(
     reducers,
     initialState,
-    // applyMiddleware(thunk, null, globalState, logger)
+    applyMiddleware(thunk, api, globalState, logger)
 );

@@ -1,0 +1,46 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "jsx-a11y"
+  ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
+  "rules": {
+    "max-len": ["error", 100],
+    "indent": ["error", 4],
+    "no-var": "off",
+    "newline-after-var": ["warn", "always"],
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "new-cap": ["error", {
+      "capIsNewExceptions": [
+        "Immutable.Map",
+        "Immutable.OrderedMap",
+        "Immutable.Record"
+      ]
+    }],
+
+    // REACT
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/prefer-es6-class": [1, "always"],
+
+    "valid-jsdoc": [
+      2,
+      {
+        "prefer": {
+          "return": "return"
+        },
+        "requireReturn": false,
+        "requireParamDescription": false,
+        "requireReturnDescription": false
+      }
+    ]
+  }
+}

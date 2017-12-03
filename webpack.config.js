@@ -2,109 +2,14 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpackEntries = require('./webpack.entries.js');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const CLIENT_PATH = path.join(__dirname, '/src');
 const DEBUG = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
-const environments = {
-  development: {
-    context: CLIENT_PATH,
-    entry: {
-      javascript: './index.js',
-      html: './index.html',
-    },
-
-    resolve: {
-        extensions: ['', '.js', '.jsx'],
-    },
-
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loaders: ['react-hot', 'babel']
-        },
-        {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'css-loader',
-                publicPath: '../',
-            }),
-        },
-        {
-            test: /\.jsx?$/,
-            include: [
-                path.join(CLIENT_PATH),
-            ],
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015', 'react', 'stage-0'],
-            },
-        },
-        {
-          test: /\.html$/,
-          loader: 'file?name=[name].[ext]',
-        }
-      ]
-    },
-    output: {
-      // filename: 'index.js',
-      filename: './js/[name].js',
-      path: __dirname + '/dist',
-    },
-    devServer: {
-      port: 3000
-    }
-  },
-
-  production: {
-    context: CLIENT_PATH,
-    entry: {
-      javascript: './index.js',
-      html: './index.html',
-    },
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loaders: ['babel'],
-        },
-        {
-            test: /\.jsx?$/,
-            include: [
-                path.join(CLIENT_PATH),
-            ],
-            use: [
-                {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env', 'react', 'stage-0'],
-                    },
-                },
-            ],
-        },
-        {
-          test: /\.html$/,
-          loader: 'file?name=[name].[ext]',
-        }
-      ]
-    },
-    plugins: [
-      new webpack.optimize.UglifyJsPlugin({minimize: true})
-    ],
-    output: {
-      filename: 'index.js',
-      path: __dirname + '/dist',
-    }
-  }
-}
-
 const resultConfig = {
-    entry: webpackEntries.entry,
+    entry: {
+        main: 'src/index.js',
+    },
 
     context: CLIENT_PATH,
     output: {

@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import App from '../components/App';
 
 const mapStateToProps = state => ({
-    // isLoadInit: state.getIn(['list', 'isLoadInit']),
+    isAuth: state.getIn(['login', 'isAuth']),
+    avatar: state.getIn(['login', 'avatar']),
+    login: state.getIn(['login', 'login']),
 });
 const mapDispatchToProps = {
     // onChangeFilter: setFilter,

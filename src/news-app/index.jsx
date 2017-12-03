@@ -7,15 +7,16 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import { storeCreator, initialState } from './store';
 import { ALLOW_URLS } from './lib/AppConstants';
-import './media/index.css';
+// import './media/index.css';
+import './media/style.less';
 
 const store = storeCreator(fromJS(initialState));
 
 // TODO: Сделать через контейнеры: const View = require('./containers/View').default;
-const App = require('./components/App').default;
-const Login = require('./components/Login').default;
-const Feed = require('./components/Feed/index').default;
-const View = require('./components/View').default;
+const App = require('./containers/App').default;
+const Login = require('./containers/Login').default;
+const Feed = require('./containers/Feed').default;
+const View = require('./containers/View').default;
 const Profile = require('./components/Profile').default;
 
 const createSelectLocationState = () => {
@@ -44,6 +45,7 @@ ReactDOM.render((
                 <Route path={`${ALLOW_URLS.VIEW}/:id`} component={View} />
                 <Route path={`${ALLOW_URLS.PROFILE}`} component={Profile} />
                 <Route path="/" component={Feed} />
+
             </Route>
         </Router>
     </Provider>

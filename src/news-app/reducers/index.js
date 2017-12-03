@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux-immutable';
 
 import login from './login';
-import list from './list';
+import feed from './feed';
 import view from './view';
 import routing from './routing';
 import profile from './profile';
 
 const newsApp = combineReducers({
     login,
-    list,
+    feed,
     view,
     routing,
     profile,

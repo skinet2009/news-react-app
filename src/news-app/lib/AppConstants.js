@@ -4,3 +4,9 @@ export const ALLOW_URLS = {
     VIEW: '/news',
     PROFILE: '/profile',
 };
+
+export const CONTENT_BLOCKS = {
+    IMAGE: 'image',
+    TEXT: 'text',
+    VIDEO: 'video',
+};
