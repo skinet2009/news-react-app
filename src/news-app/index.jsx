@@ -9,13 +9,12 @@ import { storeCreator, initialState } from './store';
 import { ALLOW_URLS } from './lib/AppConstants';
 import './media/index.css';
 
-console.warn(ALLOW_URLS);
 const store = storeCreator(fromJS(initialState));
 
 // TODO: Сделать через контейнеры: const View = require('./containers/View').default;
 const App = require('./components/App').default;
 const Login = require('./components/Login').default;
-const Feed = require('./components/Feed').default;
+const Feed = require('./components/Feed/index').default;
 const View = require('./components/View').default;
 const Profile = require('./components/Profile').default;
 
@@ -24,7 +23,7 @@ const createSelectLocationState = () => {
     let prevRoutingStateJS;
 
     return state => {
-        const routingState = state.get('routing'); // or state.routing
+        const routingState = state.get('routing');
 
         if (typeof prevRoutingState === 'undefined' || prevRoutingState !== routingState) {
             prevRoutingState = routingState;
@@ -40,12 +39,12 @@ const history = syncHistoryWithStore(browserHistory, store, {
 ReactDOM.render((
     <Provider store={store}>
         <Router history={history}>
-            <Route path={ALLOW_URLS.LOGIN} component={Login} />
             <Route component={App}>
-                <Route path={ALLOW_URLS.FEED} component={Feed} />
-                <Route path={`${ALLOW_URLS.VIEW}/:post`} component={View} />
+                <Route path={ALLOW_URLS.LOGIN} component={Login} />
+                <Route path={`${ALLOW_URLS.VIEW}/:id`} component={View} />
                 <Route path={`${ALLOW_URLS.PROFILE}`} component={Profile} />
+                <Route path="/" component={Feed} />
             </Route>
         </Router>
     </Provider>
-), document.getElementById('root'));
+), document.getElementById('react-news-app'));

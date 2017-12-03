@@ -1,6 +1,6 @@
 export const ALLOW_URLS = {
     LOGIN: '/login',
     FEED: '/feed',
-    VIEW: '/news/',
+    VIEW: '/news',
     PROFILE: '/profile',
 };

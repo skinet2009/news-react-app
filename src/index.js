@@ -1,1 +1,1 @@
-import './news-app/index.jsx';
+import './news-app';

@@ -8,5 +8,5 @@ import globalState from '../middleware/globalState';
 export default initialState => createStore(
     reducers,
     initialState,
-    applyMiddleware(thunk, () => {}, globalState, logger)
+    // applyMiddleware(thunk, null, globalState, logger)
 );

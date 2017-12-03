@@ -1,6 +1,11 @@
 export default {
-    login: {},
+    login: {
+        isAuth: false,
+    },
     list: {},
-    view: {},
+    view: {
+        id: null,
+        title: '',
+    },
     profile: {},
 };
