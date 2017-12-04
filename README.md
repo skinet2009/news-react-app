@@ -14,6 +14,6 @@ News SPA on React + Redux
 
 - `npm i`
 
-- `npm start`
+- `npm run dev`
 
 - Open [http://localhost:3000](http://localhost:3000) in your browser
